@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <!-- Especificando a codificação de caracteres, sendo ela o conjunto UTF-8 -->
+    <meta charset="UTF-8" />
+    <!-- Especificando a descrição do site -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Configurando a largura e escala da pagina para exibição-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Configurando a descrição do site -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.svg" />
+    <!-- Configurando o título do jogo -->
+    <title>Isabel's Sky Jump</title>
+    <script src = "https://ceciliagalvaoo.com/Isabel-s-Sky-Jump/main.js"></script>
+    
+  </head>
+
+  <body>
+    <div id="mygame"></div>
+    <!-- Adicionando o phaser -->
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.1/dist/phaser.js"></script>
+    <!-- Adicionando cena inicial -->
+    <script src="./src/index.js"></script>
+    <!-- Adicionando o game over -->
+    <script src="./src/gameoverscene.js"></script>
+    <script src="./src/welcome.js"></script>
+
+  </body>
+  <script type="text/javascript">
+
+    // configuração do jogo
+    const config = {
+    type: Phaser.AUTO,
+    width: 640,
+    height: 885,
+    physics: {
+      default: 'arcade',
+      arcade: {
+        gravity: { y: 500 },
+        debug: false,
+      },
+    },
+
+    // adicionando cenas
+    scene: [IndexScene, GameOverScene, Welcome],
+    // configuração da escala
+    scale: {
+      parent: 'mygame',
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    }
+  }
+
+  // criação do jogo
+  const game = new Phaser.Game(config)
+  game.scene.start('Welcome');
+  </script>
+  
+</html>
